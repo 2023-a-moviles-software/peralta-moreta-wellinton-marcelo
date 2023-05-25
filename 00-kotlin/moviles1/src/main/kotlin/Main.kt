@@ -55,6 +55,17 @@ fun main(args: Array<String>) {
     calcularSueldo(10.00, 12.00, 20.00)
     calcularSueldo(10.00, bonoEspecial = 20.00) //Name parameters
     calcularSueldo(bonoEspecial = 20.00, sueldo = 10.00, tasa = 14.00) //parametros nombrado
+    val sumaUno = Suma(1,1)
+    val sumaDos = Suma(null,1)
+    val sumaTres = Suma(1,null)
+    val sumaCuatro = Suma(null,null)
+    sumaUno.sumar()
+    sumaDos.sumar()
+    sumaTres.sumar()
+    sumaCuatro.sumar()
+    println(Suma.pi)
+    println(Suma.elevarAlCuadrado(2))
+    println(Suma.historialSumas)
 }
 
 //void -> unit : para que no retorne nada
@@ -100,7 +111,7 @@ fun calcularSueldo(
             //var uno: Int, //Propiedad de la clase (por defecto es PUBLIC)
             //public var uno: Int,
             protected val numeroUno:Int, //Propiedad de la clasew protected numeros.numeroUno
-            private val numeroDos:Int, //Propiedad de la clase protected numeros.numeroDos
+            protected val numeroDos:Int //Propiedad de la clase protected numeros.numeroDos
         ){
             //var cedula: String =""(public es por defecto)
             //private valorCalculado: Int =0(private)
@@ -110,3 +121,65 @@ fun calcularSueldo(
                 println("Inicializando")
             }
         }
+
+//Clase suma
+class Suma(//Constructor Primario Suma
+    unoParametro : Int, //parametro
+    dosParametro : Int,// parametro
+): Numeros(unoParametro, dosParametro){//Extendiendo y mandando los parametros (super)
+    init{ //Bloque codigo constructos primario
+        this.numeroUno
+        this.numeroDos
+    }
+
+    constructor(//  Segundo constructor
+        uno: Int?, //param
+        dos: Int //parm
+    ):this(
+        if(uno ==null) 0 else uno,
+        dos
+    )
+
+    constructor(//  Tercer constructor
+        uno: Int, //param
+        dos: Int? //parm
+    ):this(
+        uno,
+        if(dos ==null) 0 else dos
+    )
+
+    constructor(//  Cuarto constructor
+        uno: Int?, //param
+        dos: Int? //parm
+    ):this(
+        if(uno ==null) 0 else uno,
+        if(dos ==null) 0 else dos,
+    )
+
+    //metodo
+    public fun sumar(): Int{
+        val total = numeroUno + numeroDos
+        agregarHistorial(total) //this.agregarHistorial(total)
+        return total
+    }
+
+    companion object{//Atributos y metodos "Compartidos" Singletons o Static de esta clase
+        //Todas las instancias de esta clase comparten estos atributos y metodos
+        //dentro del companion object
+        val pi=3.14
+
+        fun elevarAlCuadrado(num:Int): Int{
+            return num*num
+        }
+
+        val historialSumas = ArrayList<Int>()
+
+        fun agregarHistorial(valorNuevaSuma: Int){
+            historialSumas.add(valorNuevaSuma)
+        }
+    }
+
+
+}
+
+
