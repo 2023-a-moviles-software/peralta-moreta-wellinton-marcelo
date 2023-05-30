@@ -66,7 +66,104 @@ fun main(args: Array<String>) {
     println(Suma.pi)
     println(Suma.elevarAlCuadrado(2))
     println(Suma.historialSumas)
+
+
+
+//30 - 05
+
+//Arreglos
+//Tipos de Arreglos
+
+//Arreglo Estático
+val arregloEstatico: Array<Int> = arrayOf<Int>(1,2,3)
+println(arregloEstatico)
+
+//Arreglo dinamico
+val arregloDinamico: ArrayList<Int> = arrayListOf<Int>(1,2,3,4,5,6,7,8,9,10)
+
+    //Operadores -> Sirven para los arreglos estaticos y dinamicos
+
+    //For each -> Unit
+    //Iterarun arreglo
+
+    val respuestaForEach: Unit = arregloDinamico
+        .forEach{valorActual: Int ->
+            println("Valor Actual : ${valorActual}")
+        }
+
+    arregloDinamico.forEach {println(it)} //it en ingles es eso, significa el elemento iterado
+
+    arregloEstatico
+        .forEachIndexed { indice: Int, valorActual: Int ->
+            println("Valor ${valorActual} Indice: ${indice}")
+        }
+    println(respuestaForEach)
+
+
+//Operador Map -> Muta el arreglo (Cambia el arreglo)
+// vAMOS A CREAR UN NUEVO ARREGLO CON LOS DATOS MODIFICADOs
+    //1 ) Enviamos el nuevo valor de la iteracion
+//    2) deveulve el nuevo arreglo modificado
+
+    val respuestaMap: List<Double> = arregloDinamico
+        .map{ valorActual: Int ->
+            return@map valorActual.toDouble()+100.00
+        }
+    println(respuestaMap)
+
+    val respuestaMapDos = arregloDinamico.map{it+15}
+    println(respuestaMapDos)
+
+    //oPERADOR Filter -> Filtra el arreglo
+    //1 devuelve una expresion true or false
+    //2 Nuevo arreglo filtrado
+
+    val respuestaFilter: List<Int> =arregloDinamico
+        .filter {valorActual: Int ->
+            val mayoresACinco: Boolean = valorActual > 5
+            return@filter mayoresACinco
+        }
+
+    val respuestaFilterDos = arregloDinamico.filter{it <=5}
+    println(respuestaFilter)
+    println(respuestaFilterDos)
+
+    // OR AND
+    // OR -> aNY (aLGUNO CUMPLE)
+    // AND -> All (todos cumplesn?)
+
+    val respuestaAny: Boolean = arregloDinamico
+        .any{ valorActual : Int ->
+            return@any (valorActual>5)
+        }
+    println(respuestaAny) //true
+
+    val respuestaAll: Boolean= arregloDinamico
+        .all{ valorActual:Int ->
+            return@all(valorActual>5)
+        }
+    println(respuestaAll)//false
+
+
+    //rEDUCE -> VALOR ACUMULADO
+// valor acumulado = 0 ( siempre en 0 en kotlin
+    // 1,2,3,4,5 -> sume todos los valores del arreglo
+    // valIterac1 = valorempieza  +1 = 0+1 = 1 -> iterac1
+    // valIterac2 = iterac1  +2 = 1+2 = 3 -> iterac2
+    // valIterac3 = iterac2  +3 = 3+3 = 6 -> iterac3
+    // valIterac4 = iterac3  +4 = 6+4 = 10 -> iterac4
+    // valIterac5 = iterac4  +5 = 10+5 = 15 -> iterac5
+    val respuestaReduce: Int = arregloDinamico
+        . reduce{ //acumulado =0 -> siempre empieza en 0
+            acumulado: Int, valorActual: Int ->
+            return@reduce (acumulado + valorActual) // LOGICA DE NEGOCIO -> sumar precios de carrito de compras
+        }
+    println(respuestaReduce) //78
+
 }
+
+
+
 
 //void -> unit : para que no retorne nada
 
