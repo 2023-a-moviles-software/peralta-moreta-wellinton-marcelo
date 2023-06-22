@@ -1,0 +1,4 @@
+1,Note 8,128,false,449.99,Fri Sep 14 00:00:00 ECT 2018
+2,Iphone 12,512,false,988.99,Tue Oct 13 00:00:00 ECT 2020
+1,Galaxy S23,512,true,1200.9,Mon Feb 20 00:00:00 ECT 2023
+1,Galaxy S21,128,false,580.9,Thu May 14 00:00:00 ECT 2020
