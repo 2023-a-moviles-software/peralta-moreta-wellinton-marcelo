@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111210401118",
+    "project_id": "marcas-celulares",
+    "storage_bucket": "marcas-celulares.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111210401118:android:460c454ac24ef4fe5d13cf",
+        "android_client_info": {
+          "package_name": "com.example.marcascelulares"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111210401118-knj9dlik0argok039segdm5nr9ai270k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlvANY8sIghS7RezptLl8vL8bL4lOO_7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111210401118-knj9dlik0argok039segdm5nr9ai270k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
